@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+QEMU_BRIDGE='qemubr1'
+ip link set dev $1 nomaster
+ip link set dev $1 down
