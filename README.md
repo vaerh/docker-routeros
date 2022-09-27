@@ -4,6 +4,8 @@ Docker container to run Mikrotik RouterOS
 
 ```
 docker run -d --rm \
+  --cap-add=NET_ADMIN \
+  -v /dev/net/tun:/dev/net/tun \
   -p 2222:22   \
   -p 8728:8728 \
   -p 8729:8729 \
