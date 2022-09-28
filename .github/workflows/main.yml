@@ -1,0 +1,21 @@
+name: rss
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read|write
+    steps:
+      - uses: guilhem/rss-issues-action@0.5.2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          feed: "https://mikrotik.com/current.rss"
+          prefix: "[MikroTik RSS]"
+          characterLimit: "255"
+          dry-run: "false"
+          lastTime: "92h"
+          labels: "mikrotik/release"
