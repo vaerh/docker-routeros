@@ -8,7 +8,7 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     permissions:
-      issues: read|write
+      issues: write
     steps:
       - uses: guilhem/rss-issues-action@0.5.2
         with:
