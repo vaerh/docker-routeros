@@ -15,6 +15,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          # https://github.com/actions/checkout/issues/701
+          fetch-depth: 0
+
+      - run: echo "GIT_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
 
       - name: Log into registry
         if: github.event_name != 'pull_request'
@@ -27,4 +32,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/routeros:latest,${{ secrets.DOCKERHUB_USERNAME }}/routeros:${{ github.ref_name }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/routeros:latest,${{ secrets.DOCKERHUB_USERNAME }}/routeros:${{ env.GIT_TAG }}
