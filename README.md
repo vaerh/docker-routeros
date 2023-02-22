@@ -13,6 +13,31 @@ docker run -d --rm \
   --name routeros-$(head -c 4 /dev/urandom | xxd -p)-$(date +'%Y%m%d-%H%M%S') \
 vaerhme/routeros:latest
 ```
+docker-compose
+```
+version: "3"
+
+services:
+  routeros:
+    image: vaerh/routeros:latest
+    privileged: true
+    restart: unless-stopped
+    # 8 interfaces
+    entrypoint: /routeros/entrypoint_for_docker_8interfaces.sh
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    ports:
+      - "8291:8291"
+      - "22222:22"
+      - "22223:23"
+      - "7777:80"
+      - "8728:8728"
+      - "8729:8729"
+      - "28728:8728"
+      - "28729:8729"
+```
 
 ## Docker Hub Pages: 
 * https://hub.docker.com/r/vaerh/routeros
