@@ -20,7 +20,7 @@ RUN set -xe \
     libarchive-tools
 
 # Environments which may be change
-ENV ROUTEROS_VERSON="7.7"
+ENV ROUTEROS_VERSON="7.8"
 ENV ROUTEROS_IMAGE="chr-$ROUTEROS_VERSON.vdi"
 ENV ROUTEROS_PATH="https://download.mikrotik.com/routeros/$ROUTEROS_VERSON/$ROUTEROS_IMAGE"
 
