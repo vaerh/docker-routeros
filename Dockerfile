@@ -1,4 +1,4 @@
-FROM alpine:3.18.0
+FROM alpine:3.18.2
 
 LABEL maintainer="Vaerh <vaerh@tutanota.com>"
 
@@ -21,7 +21,7 @@ RUN set -xe \
 
 
 # Environments which may be change
-ENV ROUTEROS_VERSON="7.9"
+ENV ROUTEROS_VERSON="7.10"
 ENV ROUTEROS_IMAGE="chr-$ROUTEROS_VERSON.vdi"
 ENV ROUTEROS_PATH="https://download.mikrotik.com/routeros/$ROUTEROS_VERSON/$ROUTEROS_IMAGE"
 
