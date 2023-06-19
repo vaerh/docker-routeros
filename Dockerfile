@@ -21,12 +21,12 @@ RUN set -xe \
 
 
 # Environments which may be change
-ENV ROUTEROS_VERSON="7.10"
-ENV ROUTEROS_IMAGE="chr-$ROUTEROS_VERSON.vdi"
-ENV ROUTEROS_PATH="https://download.mikrotik.com/routeros/$ROUTEROS_VERSON/$ROUTEROS_IMAGE"
+ENV ROUTEROS_VERSION="7.10"
+ENV ROUTEROS_IMAGE="chr-$ROUTEROS_VERSION.vdi"
+ENV ROUTEROS_PATH="https://download.mikrotik.com/routeros/$ROUTEROS_VERSION/$ROUTEROS_IMAGE"
 
 # Download VDI image from remote site
-RUN wget "$ROUTEROS_PATH" -O "/routeros/$ROUTEROS_IMAGE" || wget -qO- "$ROUTEROS_PATH".zip | bsdtar -C /routeros/ -xf-
+RUN wget -qO- "$ROUTEROS_PATH".zip | bsdtar -C /routeros/ -xf- || wget "$ROUTEROS_PATH" -O "/routeros/$ROUTEROS_IMAGE"
 
 # Copy script to routeros folder
 ADD ["./scripts", "/routeros"]
