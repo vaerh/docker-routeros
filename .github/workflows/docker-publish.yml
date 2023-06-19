@@ -3,7 +3,8 @@ name: Docker
 on:
   push:
     paths:
-      - 'Dockerfile'
+      # temporary disabled
+      - '*Dockerfile'
 
 jobs:
   build:
