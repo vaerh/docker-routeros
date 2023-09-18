@@ -24,7 +24,7 @@ jobs:
 
       - name: Log into registry #1
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USER1 }}
           password: ${{ secrets.DOCKERHUB_TOKEN1 }}
@@ -37,7 +37,7 @@ jobs:
 
       - name: Log into registry #2
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USER2 }}
           password: ${{ secrets.DOCKERHUB_TOKEN2 }}
