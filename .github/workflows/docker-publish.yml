@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN1 }}
 
       - name: Build and push Docker image to the repo #1
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ secrets.DOCKERHUB_USER1 }}/routeros:latest,${{ secrets.DOCKERHUB_USER1 }}/routeros:${{ env.GIT_TAG }}
@@ -43,7 +43,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN2 }}
 
       - name: Build and push Docker image to the repo #2
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ secrets.DOCKERHUB_USER2 }}/routeros:latest,${{ secrets.DOCKERHUB_USER2 }}/routeros:${{ env.GIT_TAG }}
