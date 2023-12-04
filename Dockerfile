@@ -1,4 +1,4 @@
-FROM alpine:3.18.3
+FROM alpine:3.18.5
 
 LABEL maintainer="Vaerh <vaerh@tutanota.com>"
 
