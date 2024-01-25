@@ -20,7 +20,7 @@ jobs:
           # https://github.com/actions/checkout/issues/701
           fetch-depth: 0
 
-      - run: echo "GIT_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
+      - run: echo "GIT_TAG=`echo $(sed -nE 's/^.*ROUTEROS_VERSION="(.*)"/\1/p' Dockerfile)`" >> $GITHUB_ENV
 
       - name: Log into registry #1
         if: github.event_name != 'pull_request'
