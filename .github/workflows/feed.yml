@@ -15,7 +15,6 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           feed: "https://mikrotik.com/current.rss"
           prefix: "[MikroTik RSS]"
-          characterLimit: "255"
           dry-run: "false"
           lastTime: "92h"
           labels: "mikrotik/release"
