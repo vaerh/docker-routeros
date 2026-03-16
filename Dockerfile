@@ -21,7 +21,7 @@ RUN set -xe \
 
 
 # Environments which may be change
-ENV ROUTEROS_VERSION="7.21"
+ENV ROUTEROS_VERSION="7.22"
 ENV ROUTEROS_IMAGE="chr-$ROUTEROS_VERSION.vdi"
 ENV ROUTEROS_PATH="https://download.mikrotik.com/routeros/$ROUTEROS_VERSION/$ROUTEROS_IMAGE"
 
